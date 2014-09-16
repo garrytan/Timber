@@ -5,79 +5,72 @@
 
 {% endcomment %}
 
-{% paginate collection.products by 12 %}
+{% paginate collection.products by 100 %}
 
-{% include 'breadcrumb' %}
-
-<div class="grid">
-
-  <div class="grid-item large--one-quarter">
-    {% include 'collection-sidebar' %}
-  </div>
-
-  <div class="grid-item large--three-quarters">
-
-    {% comment %}
-      Different markup if a collection description exists
-    {% endcomment %}
-    {% if collection.description != blank %}
-      <header class="section-header">
-        <h1 class="section-header--title">{{ collection.title }}</h1>
-        <div class="rte rte--header">
-          {{ collection.description }}
-        </div>
-      </header>
-      <hr>
-      <div class="section-header">
-        <div class="section-header--right">
-          {% include 'collection-sorting' %}
-          {% include 'collection-views' %}
-        </div>
-      </div>
-    {% else %}
-      <header class="section-header">
-        <h1 class="section-header--title section-header--left">{{ collection.title }}</h1>
-        <div class="section-header--right">
-          {% include 'collection-sorting' %}
-          {% include 'collection-views' %}
-        </div>
-      </header>
-    {% endif %}
-
-    {% comment %}
-      Use class grid-uniform to have evenly sized columns clear
-      each other properly at each breakpoint.
-    {% endcomment %}
-    <div class="grid-uniform">
+<div class="wrapper"> 
+  <div class="grid">
 
       {% comment %}
-        Loop through our products in the current collection.
-        See the snippet 'product-grid-item' for the layout.
+        Different markup if a collection description exists
       {% endcomment %}
-      {% for product in collection.products %}
-
-        {% include 'product-grid-item' %}
-
-      {% else %}
-
-        <div class="grid-item">
-          <p>Sorry, there are no products matching your search.</p>
+      {% if collection.description != blank %}
+        <header class="section-header">
+          <h1 class="section-header--title">{{ collection.title }}</h1>
+          <div class="rte rte--header">
+            {{ collection.description }}
+          </div>
+        </header>
+        <hr>
+        <div class="section-header">
+          <div class="section-header--right">
+            {% include 'collection-sorting' %}
+            {% include 'collection-views' %}
+          </div>
         </div>
+      {% else %}
+        <header class="section-header">
+          <h1 class="section-header--title section-header--left">{{ collection.title }}</h1>
+          <div class="section-header--right">
+            {% include 'collection-sorting' %}
+            {% include 'collection-views' %}
+          </div>
+        </header>
+      {% endif %}
 
-      {% endfor %}
+      {% comment %}
+        Use class grid-uniform to have evenly sized columns clear
+        each other properly at each breakpoint.
+      {% endcomment %}
+      <div class="grid-uniform">
 
-    </div>
+        {% comment %}
+          Loop through our products in the current collection.
+          See the snippet 'product-grid-item' for the layout.
+        {% endcomment %}
+        {% for product in collection.products %}
 
-    {% if paginate.pages > 1 %}
-      <hr>
+          {% include 'product-grid-item' %}
 
-      <div class="text-center">
-        {% include 'pagination-custom' %}
+        {% else %}
+
+          <div class="grid-item">
+            <p>Sorry, there are no products matching your search.</p>
+          </div>
+
+        {% endfor %}
+
       </div>
-    {% endif %}
+
+      {% if paginate.pages > 1 %}
+        <hr>
+
+        <div class="text-center">
+          {% include 'pagination-custom' %}
+        </div>
+      {% endif %}
+
 
   </div>
 
-</div>
-
-{% endpaginate %}
+  {% endpaginate %}
+</div> 
