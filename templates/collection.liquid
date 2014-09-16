@@ -5,6 +5,26 @@
 
 {% endcomment %}
 
+
+<div class="grid second-header">
+  <div class="grid-item large--two-twelfths">
+    <div class="logo-black"></div>
+  </div>
+  <div class="grid-item large--seven-twelfths">
+    <h1>{{ collection.title }}</h1>
+  </div>
+  <div class="grid-item large--three-twelfths">
+    <div class="free-shipping">
+      <div class="line-one">
+        Free domestic shipping
+      </div>
+      <div class="line-two">
+        on orders over $100
+      </div>
+    </div>
+  </div>
+</div>
+
 {% paginate collection.products by 100 %}
 
 <div class="wrapper"> 
@@ -12,30 +32,32 @@
 
       {% comment %}
         Different markup if a collection description exists
+        ===== FOR REFERENCE ONLY =====
+      
+        {% if collection.description != blank %}
+          <header class="section-header">
+            <h1 class="section-header--title">{{ collection.title }}</h1>
+            <div class="rte rte--header">
+              {{ collection.description }}
+            </div>
+          </header>
+          <hr>
+          <div class="section-header">
+            <div class="section-header--right">
+              {% include 'collection-sorting' %}
+              {% include 'collection-views' %}
+            </div>
+          </div>
+        {% else %}
+          <header class="section-header">
+            <h1 class="section-header--title section-header--left">{{ collection.title }}</h1>
+            <div class="section-header--right">
+              {% include 'collection-sorting' %}
+              {% include 'collection-views' %}
+            </div>
+          </header>
+        {% endif %}
       {% endcomment %}
-      {% if collection.description != blank %}
-        <header class="section-header">
-          <h1 class="section-header--title">{{ collection.title }}</h1>
-          <div class="rte rte--header">
-            {{ collection.description }}
-          </div>
-        </header>
-        <hr>
-        <div class="section-header">
-          <div class="section-header--right">
-            {% include 'collection-sorting' %}
-            {% include 'collection-views' %}
-          </div>
-        </div>
-      {% else %}
-        <header class="section-header">
-          <h1 class="section-header--title section-header--left">{{ collection.title }}</h1>
-          <div class="section-header--right">
-            {% include 'collection-sorting' %}
-            {% include 'collection-views' %}
-          </div>
-        </header>
-      {% endif %}
 
       {% comment %}
         Use class grid-uniform to have evenly sized columns clear
@@ -48,15 +70,11 @@
           See the snippet 'product-grid-item' for the layout.
         {% endcomment %}
         {% for product in collection.products %}
-
           {% include 'product-grid-item' %}
-
         {% else %}
-
           <div class="grid-item">
             <p>Sorry, there are no products matching your search.</p>
           </div>
-
         {% endfor %}
 
       </div>

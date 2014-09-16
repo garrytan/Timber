@@ -16,31 +16,15 @@
   {% include 'breadcrumb' %}
 
   <div class="grid">
-    <div class="grid-item large--one-half text-center">
+    <div class="grid-item large--two-thirds text-center">
       <div class="product-photo-container" id="productPhoto">
         {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-        <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="productPhotoImg">
+        <img src="{{ featured_image | img_url: '2048x2048' }}" alt="{{ featured_image.alt | escape }}" id="productPhotoImg">
       </div>
-
-      {% comment %}
-        Create thumbnails if we have more than one product image
-      {% endcomment %}
-      {% if product.images.size > 1 %}
-        <ul class="product-photo-thumbs grid-uniform" id="productThumbs">
-
-          {% for image in product.images %}
-            <li class="grid-item one-quarter">
-              <a href="{{ image.src | img_url: '1024x1024' }}" class="product-photo-thumb">
-                <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-              </a>
-            </li>
-          {% endfor %}
-
-        </ul>
-      {% endif %}
     </div>
+      
 
-    <div class="grid-item large--one-half">
+    <div class="grid-item large--one-third">
 
       <h1 itemprop="name">{{ product.title }}</h1>
 
@@ -147,6 +131,25 @@
     </div>
   </div>
 
+
+
+  {% if product.images.size > 1 %}
+    <div class="grid">
+      <div class="grid-item large--eight-tenths">
+        {% for image in product.images %}
+          <img src="{{ image.src | img_url: '2048x2048' }}" alt="{{ image.alt | escape }}">
+        {% endfor %}
+      </div>
+      <div class="grid-item large--two-tenths">
+        Add to cart
+      </div>
+    </div>
+
+  
+  {% endif %}
+
+
+  </div>
 </div>
 
 
