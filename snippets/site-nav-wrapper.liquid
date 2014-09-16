@@ -1,24 +1,9 @@
-{% comment %}
-
-  This is the homepage of your site.
-
-  More info on global variables (available on all templates):
-    - http://docs.shopify.com/themes/liquid-variables/global
-{% endcomment %}
-
-
-
-
-<div class="above-fold-hero">
-
-  <nav class="nav-bar-index" role="navigation">
+  <nav class="nav-bar{% if template contains 'index' %}-index{% endif %}" role="navigation">
     <div class="wrapper">
       <div class="grid">
         <div class="grid-item large--two-thirds">
           {% include 'site-nav' %}
         </div>
-      
-
         <div class="grid-item large--one-third text-center large--text-right">
           <ul class="site-nav">
             <li> 
@@ -26,11 +11,8 @@
                 Cart (<span id="cartCount">{{ cart.item_count }}</span>)
               </a>
             <li>
-
-
             <li> 
               {% if shop.customer_accounts_enabled %}
-              
                 {% if customer %}
                   {{ 'Log out' | customer_logout_link }}
                 {% else %}
@@ -43,26 +25,10 @@
                   {% endcomment %}
                   
                 {% endif %}
-              
               {% endif %}
             </li>
           </ul>
         </div>
-
       </div>
-
     </div>
   </nav>
-
-  <div class="wrapper">
-    <div class="logo">
-    </div>
-
-    <div class="call-to-action">
-      <a href="/collections/all" class='eb-button'>Shop Now</a>
-      <span>or</span>
-      <a href="/pages/lookbook" class='eb-button dark'>View Lookbook</a>
-    </div>
-  </div>
-
-</div>

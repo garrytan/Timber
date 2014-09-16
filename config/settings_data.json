@@ -5,7 +5,7 @@
       "ajax_cart_enable": true,
       "ajax_cart_method": "Drawer",
       "cart_notes_enable": true,
-      "color_body_bg": "#fff",
+      "color_body_bg": "#efefef",
       "color_body_text": "#333333",
       "color_borders": "#e5e5e5",
       "color_footer_bg": "#f2f2f2",

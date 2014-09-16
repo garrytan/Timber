@@ -1721,11 +1721,7 @@ label.error {
   #Site Header
 ==============================================================================*/
 .site-header {
-  padding: $gutter/2 0;
-
-  @include at-query ($min, $large) {
-    padding: $gutter 0;
-  }
+  border-bottom: 1px solid #ccc; 
 
   @include at-query ($min, $large) {
     .grid {
@@ -1783,7 +1779,6 @@ label.error {
   #Site Nav and Dropdowns
 ==============================================================================*/
 .nav-bar {
-  background-color: $colorNav;
 
   a {
     color: $colorNavText;

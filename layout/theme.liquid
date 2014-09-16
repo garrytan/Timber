@@ -74,99 +74,21 @@
   
   {% unless template contains 'index' %}
     <header class="site-header" role="banner">
-
-      <div class="wrapper">
-
-        <div class="grid--full">
-          <div class="grid-item large--one-half">
-            {% comment %}
-              Use the uploaded logo from theme settings if enabled.
-              Site name gets precedence with H1 tag on homepage, div on other pages.
-            {% endcomment %}
-            {% if template == 'index' %}
-              <h1 class="header-logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% else %}
-              <div class="h1 header-logo large--left" itemscope itemtype="http://schema.org/Organization">
-            {% endif %}
-              {% if settings.logo_use_image %}
-                <a href="/" itemprop="url">
-                  <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-                </a>
-              {% else %}
-                <a href="/" itemprop="url">{{ shop.name }}</a>
-              {% endif %}
-            {% if template == 'index' %}
-              </h1>
-            {% else %}
-              </div>
-            {% endif %}
-          </div>
-          <div class="grid-item large--one-half text-center large--text-right">
-            {% comment %}
-              You cart/checkout link should at least show the number of items in it.
-              Below shows the item count followed by item(s) and the total cart price.
-
-              Ajaxify Cart Notes:
-                - #cartToggle toggles cart visibility (drawer or modal)
-                - #cartCount updates the total number of items in the cart
-                - #cartCost updates the total cost of the cart
-                - Documentation:  http://shopify.com/timber#ajax-cart
-            {% endcomment %}
-            <a href="/cart" id="cartToggle">
-              Cart (<span id="cartCount">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'item', 'items' }} <span id="cartCost">{{ cart.total_price | money }}</span>)
-            </a>
-
-            {% comment %}
-              If customer accounts are enabled, provide login and create account links
-            {% endcomment %}
-            {% if shop.customer_accounts_enabled %}
-            <p class="site-header--text-links">
-              {% if customer %}
-                Logged in as <a href="/account">{{ customer.first_name }}</a> &middot; {{ 'Log out' | customer_logout_link }}
-              {% else %}
-                {{ 'Log in' | customer_login_link }}
-                {% if shop.customer_accounts_optional %}
-                or {{ 'Create an account' | customer_register_link }}
-                {% endif %}
-              {% endif %}
-            </p>
-            {% endif %}
-          </div>
-        </div>
-
-      </div>
+      {% include 'site-nav-wrapper' %}
     </header>
 
-    <nav class="nav-bar" role="navigation">
-      <div class="wrapper">
-        <div class="grid">
-          <div class="grid-item large--two-thirds">
-            {% include 'site-nav' %}
-          </div>
-          <div class="grid-item large--one-third">
-            <div class="nav-search">
-              {% include 'search-bar' %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
     <main class="wrapper main-content" role="main">
-
       {{ content_for_layout }}
-
     </main>
 
-
     {% include 'footer' %}
+
+  {% comment %} ===================== INDEX PAGE ===================== {% endcomment %}
   {% else %}
     {{ content_for_layout }}
   {% endunless %}
+
     
-  {% comment %}
-    An (almost) empty JS file for you to place your code
-  {% endcomment %}
   {{ 'shop.js' | asset_url | script_tag }}
 
   {% comment %}
