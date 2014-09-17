@@ -8,12 +8,39 @@
 
 {% endcomment %}
 
+<div class="grid second-header">
+  <div class="grid-item large--two-twelfths">
+    <a href="/"><div class="logo-black"></div></a>
+  </div>
+  <div class="grid-item large--seven-twelfths">
+    {% if collection and collection.title != 'Products'%}
+      <h2>{{ collection.title }}</h2>
+    {% else %}
+      <h2>New Arrivals</h2>
+    {% endif %}
+  </div>
+  <div class="grid-item large--three-twelfths">
+    <div class="free-shipping">
+      <div class="line-one">
+        Free domestic shipping
+      </div>
+      <div class="line-two">
+        on orders over $100
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: '1024x1024' }}">
 
-  {% include 'breadcrumb' %}
+  {% comment %}
+    NO BREADCRUMBS FOR NOW!
+    {% include 'breadcrumb' %}
+  {% endcomment %}
 
   <div class="grid">
     <div class="grid-item large--two-thirds text-center">
