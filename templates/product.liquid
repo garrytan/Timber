@@ -19,7 +19,7 @@
       <h2>New Arrivals</h2>
     {% endif %}
   </div>
-  <div class="grid-item large--three-twelfths">
+  <div class="grid-item large--three-twelfths free-shipping-wrapper">
     <div class="free-shipping">
       <div class="line-one">
         Free domestic shipping
@@ -43,17 +43,17 @@
   {% endcomment %}
 
   <div class="grid">
-    <div class="grid-item large--two-thirds text-center">
+    <div class="grid-item large--two-thirds text-center product-content">
       <div class="product-photo-container" id="productPhoto">
         {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-        <img src="{{ featured_image | img_url: '2048x2048' }}" alt="{{ featured_image.alt | escape }}" id="productPhotoImg">
+        <img src="{{ featured_image | img_url: '2048x2048' }}" alt="{{ featured_image.alt | escape }}" id="productPhotoImg" class="product-image">
       </div>
     </div>
       
 
     <div class="grid-item large--one-third">
 
-      <h1 itemprop="name">{{ product.title }}</h1>
+      <h1 itemprop="name" class="balance-text">{{ product.title }}</h1>
 
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
@@ -70,6 +70,19 @@
           ID addToCartForm is a selector for the ajaxify cart plugin
         {% endcomment %}
         <form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCartForm">
+
+          <div class="product-price">
+            <span id="productPrice" class="h2{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price">
+              {{ product.price | money | remove: '.00' | remove: ' ' }}
+            </span>
+          </div>
+
+          {% if product.compare_at_price > product.price %}
+            <p id="comparePrice" class="h5">
+              Compare at {{ product.compare_at_price_max | money }}
+            </p>
+          {% endif %}
+          
 
           {% comment %}
             Add product variants as a dropdown.
@@ -102,25 +115,18 @@
             {% endfor %}
           </select>
 
+
           {% comment %}
-            Optionally show the 'compare at' or original price of the product.
+            ----- E&B NO QUANTITY SELECTOR ------
+            <label for="quantity" class="quantity-selector">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
           {% endcomment %}
-          <span id="productPrice" class="h2{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price">
-            {{ product.price | money }}
-          </span>
 
-          {% if product.compare_at_price > product.price %}
-            <p id="comparePrice" class="h5">
-              Compare at: {{ product.compare_at_price_max | money }}
-            </p>
-          {% endif %}
-
-          <label for="quantity" class="quantity-selector">Quantity</label>
-          <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
-
-          <button type="submit" name="add" id="addToCart" class="btn">
-            <span id="addToCartText"></span>
-          </button>
+          <div>
+            <button type="submit" name="add" id="addToCart" class="btn">
+              <span id="addToCartText"></span>
+            </button>
+          </div>
         </form>
 
       </div>
@@ -132,28 +138,31 @@
       {% comment %}
         If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
         in the URL, we can show next/previous links to other products in the collection.
-      {% endcomment %}
-      {% if collection %}
-        {% if collection.previous_product or collection.next_product %}
-          <p>
+      
+        -------- E&B DO NOT SHOW THIS ------
 
-          {% if collection.previous_product %}
-            {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
-            <span class="left">
-              {{ '&larr; Previous Product' | link_to: prev_url }}
-            </span>
+        {% if collection %}
+          {% if collection.previous_product or collection.next_product %}
+            <p>
+
+            {% if collection.previous_product %}
+              {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
+              <span class="left">
+                {{ '&larr; Previous Product' | link_to: prev_url }}
+              </span>
+            {% endif %}
+
+            {% if collection.next_product %}
+              {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
+              <span class="right">
+                {{ 'Next Product &rarr;' | link_to: next_url }}
+              </span>
+            {% endif %}
+
+            </p>
           {% endif %}
-
-          {% if collection.next_product %}
-            {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
-            <span class="right">
-              {{ 'Next Product &rarr;' | link_to: next_url }}
-            </span>
-          {% endif %}
-
-          </p>
         {% endif %}
-      {% endif %}
+      {% endcomment %}
 
     </div>
   </div>
@@ -162,17 +171,15 @@
 
   {% if product.images.size > 1 %}
     <div class="grid">
-      <div class="grid-item large--eight-tenths">
-        {% for image in product.images %}
-          <img src="{{ image.src | img_url: '2048x2048' }}" alt="{{ image.alt | escape }}">
+      <div class="grid-item large--two-thirds">
+        {% for image in product.images offset: 1 %}
+          <img src="{{ image.src | img_url: '2048x2048' }}" alt="{{ image.alt | escape }}" class="product-image">
         {% endfor %}
       </div>
-      <div class="grid-item large--two-tenths">
-        Add to cart
+      <div class="grid-item large--one-third">
+        
       </div>
     </div>
-
-  
   {% endif %}
 
 
@@ -198,6 +205,9 @@
 
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 <script>
+  var formatPrice = function(price) {
+    return price.replace(' ', '').replace('.00','');
+  };
   var selectCallback = function(variant, selector) {
 
     var $addToCart = $('#addToCart'),
@@ -231,7 +241,7 @@
       }
 
       // Regardless of stock, update the product price
-      $productPrice.html( Shopify.formatMoney(variant.price, "{{ shop.money_format }}") );
+      $productPrice.html( formatPrice(Shopify.formatMoney(variant.price, "{{ shop.money_format }}")) ) ;
 
       // Also update and show the product's compare price if necessary
       if ( variant.compare_at_price > variant.price ) {

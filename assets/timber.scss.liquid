@@ -54,6 +54,7 @@ $viewportIncrement: 1px;
 $small: 480px;
 $medium: 768px;
 $large: 769px;
+$xlarge: 1000px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -1824,9 +1825,17 @@ label.error {
     white-space: nowrap;
   }
 
-  @include at-query ($max, $medium) {
+  @include at-query ($max, $xlarge) {
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
+
+    & > li {
+      &:first-child a {
+        padding-left: $gutter / 2;
+      }
+    }
+
+    a { padding: $gutter/6 $gutter/2; }
   }
 }
 
@@ -1866,7 +1875,7 @@ label.error {
   @include at-query ($max, $medium) {
     padding: 0 0 $gutter/2;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
   }
 
   .input-group,
@@ -2087,4 +2096,176 @@ label.error {
   color: #aaa;
   font-size: em(12px);
   text-decoration: none;
+}
+
+
+
+/*============================================================================
+  # EARTH AND BEAUTY SPECIFIC
+==============================================================================*/
+
+
+.above-fold-hero {
+  min-height: 800px;
+  background-color: #222;
+  background: url('{{ 'hero-sept2014.jpg' | asset_url }}') #222 no-repeat top center; 
+  background-size: cover !important;
+  position: relative; 
+
+  .logo { 
+    width: 334px; height: 30px; 
+    background: url('{{ 'homepage-logo.png' | asset_url }}') no-repeat;
+    margin-top: 300px;
+  }
+  .call-to-action { 
+    margin-top: 25px;
+
+    span { 
+      color: #fff; margin: 0 10px; 
+      font-size: 18px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic; 
+    }
+  }
+  border-bottom: 8px solid #222;
+
+}
+nav.nav-bar-index { 
+  padding-top: 10px;
+  a { 
+    color: #eee; 
+    text-transform: uppercase; 
+    font-size: 15px; 
+  }
+  a:hover { color: #fff; }
+}
+
+nav.nav-bar {
+  padding: 10px 0; 
+  a { text-transform: uppercase;  font-size: 15px; }
+}
+.second-header { 
+  margin-top: 30px; margin-bottom: 30px;
+
+  .logo-black { 
+    width: 125px; height: 50px;
+    background-size: 125px 50px;
+    background-image: url('{{'category-page-logo.png'|asset_url}}');
+  }
+
+  h1, h2 { 
+    font-weight: 100;
+    margin: -5px 0 0 0;
+    line-height: 1em;
+    color: #aaa;
+    font-size: 64px;
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    text-transform: uppercase;
+  }
+  
+  .free-shipping {
+    float: right; 
+    text-align: left;
+    width: 230px;
+    margin-right: 20px;
+    margin-top: 5px;
+    .line-one { 
+      font-weight: bold; 
+      font-size: 20px;
+      line-height: 20px;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    }
+    .line-two {
+      font-size: 25px;
+      line-height: 25px;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;  
+    }
+  }
+
+  @include at-query ($max, $medium) {
+    margin: 10px 0 15px;
+    .grid-item { margin: 10px 0; padding-left: 10px; }
+    .free-shipping, .free-shipping-wrapper { display: none; }
+  }
+
+}
+
+.product-image { border: 1px solid #e3e3e3; }
+.product-price { margin: 15px 0; color: #999; }
+.product-content { 
+  padding-left: 15px; font-size: 16px; 
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+.product-title {
+  margin: 0 0;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 20px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+.price { 
+  font-weight: bold; 
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+.collection-grid-item { margin-bottom: 30px;}
+
+a.eb-button {
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  padding: 8px 15px;
+  border-radius: 2px;
+  color: #000;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #968d94;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+a.eb-button:hover { 
+  background-color: rgba(255, 255, 255, 0.8); 
+}
+
+a.eb-button.dark {
+  color: #fff;
+  background-color: #968d94;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(130, 130, 130, 0.5);
+}
+a.eb-button.dark:hover { 
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+h1 { 
+  font-family: 'Playfair Display', serif;
+  font-weight: normal; 
+  line-height: 1.2em;
+}
+
+/* https://github.com/adobe-webplatform/balance-text */
+.balance-text {
+    text-wrap: balanced;
+}
+
+
+footer {
+  h3 {
+    font-size: 14px;
+    font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    text-transform: uppercase;
+  }
+}
+.template-page { 
+  .content { 
+    font-size: 18px;
+    @include at-query ($max, $small) { margin: 0 12px; }
+  }
+  
+
+}
+
+.template-collection {
+  @include at-query ($max, $small) {
+    .grid-uniform { margin-left: 5px;}
+  }
 }
