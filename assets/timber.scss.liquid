@@ -2111,11 +2111,13 @@ label.error {
   background: url('{{ 'hero-sept2014.jpg' | asset_url }}') #222 no-repeat top center; 
   background-size: cover !important;
   position: relative; 
-
+  
   .logo { 
     width: 334px; height: 30px; 
     background: url('{{ 'homepage-logo.png' | asset_url }}') no-repeat;
     margin-top: 300px;
+    
+    @include at-query ($max, $small) { margin-top: 165px; margin-left: 10px; } 
   }
   .call-to-action { 
     margin-top: 25px;
@@ -2125,8 +2127,11 @@ label.error {
       font-size: 18px;
       font-family: 'Playfair Display', serif;
       font-style: italic; 
+      @include at-query ($max, $small) { display: block; }
     }
+    @include at-query ($max, $small) { margin-left: 10px; }
   }
+
   border-bottom: 8px solid #222;
 
 }
