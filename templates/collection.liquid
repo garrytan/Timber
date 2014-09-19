@@ -29,6 +29,55 @@
   </div>
 </div>
 
+{% if collection and collection.handle == 'lookbook-fall-2014'%}
+  {{ 'owl.carousel.min.js' | asset_url | script_tag }}
+  {{ 'owl.carousel.css' | asset_url | stylesheet_tag }}
+  {{ 'owl.theme.css' | asset_url | stylesheet_tag }}
+  {{ 'owl.transitions.css' | asset_url | stylesheet_tag }}
+  <div class="wrapper">
+    <div class="grid">
+      <div id="lookbook" class="owl-carousel owl-theme">
+       
+        <div class="item"><img src="{{'Fall-2014-Lookbook-01.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-02.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-03.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-04.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        {% comment %}
+          5th slide killed for fall 2014
+          <div class="item"><img src="{{'Fall-2014-Lookbook-05.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        {% endcomment %}
+        <div class="item"><img src="{{'Fall-2014-Lookbook-06.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-07.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-08.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-09.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-10.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-11.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-12.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-13.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-14.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-15.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        <div class="item"><img src="{{'Fall-2014-Lookbook-16.jpg'| asset_url}}" alt="Lookbook Image"></div>
+        
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+     
+      $("#lookbook").owlCarousel({
+          navigation : true, // Show next and prev buttons
+          slideSpeed : 300,
+          paginationSpeed : 400,
+          singleItem:true,
+          autoPlay: 5000,
+          stopOnHover: true,
+          navigationText: ['Previous', 'Next']
+      });
+     
+    });
+  </script>
+{% endif %}
+
 {% paginate collection.products by 100 %}
 
 <div class="wrapper"> 
