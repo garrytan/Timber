@@ -63,8 +63,8 @@
   </div>
   <script>
     $(document).ready(function() {
-     
-      $("#lookbook").owlCarousel({
+      var owl = $("#lookbook");
+      owl.owlCarousel({
           navigation : true, // Show next and prev buttons
           slideSpeed : 300,
           paginationSpeed : 400,
@@ -72,6 +72,19 @@
           autoPlay: 5000,
           stopOnHover: true,
           navigationText: ['Previous', 'Next']
+      });
+      $(document).keydown(function(e) {
+        switch(e.which) {
+            case 37: // left
+            owl.trigger("owl.prev");
+            break;
+
+            case 39: // right
+            owl.trigger("owl.next");
+            break;
+
+            default: return; // exit this handler for other keys
+        }
       });
      
     });
