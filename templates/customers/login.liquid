@@ -47,17 +47,21 @@
         <label for="customer_password" class="hidden-label">Password</label>
         <input type="password" value="" name="customer[password]" id="customer_password" placeholder="Password" {% if form.errors contains "password" %} class="error"{% endif %}>
 
-        <p>
+        <div class="forgot-pw">
           <a href="#" onclick="showRecoverPasswordForm();return false;">Forgot your password?</a>
-        </p>
+        </div>
 
       {% endif %}
 
-      <div class="text-center">
+      <div>
         <p>
           <input type="submit" class="btn" value="Sign In">
         </p>
-        or <a href="{{ shop.url }}">Return to Store</a>
+        <div class="register-account">
+          <strong>Don't have an account yet?</strong>&nbsp;
+          <a href="/account/register">Create a new account</a>
+        </div>
+        <div class="return-store"><a href="{{ shop.url }}">&laquo;&nbsp;Return to Store</a></div>
       </div>
 
     {% endform %}

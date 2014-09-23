@@ -6,7 +6,7 @@
 
       {% if settings.footer_quicklinks_enable %}
         <div class="grid-item medium--one-half large--three-twelfths">
-          <h3>Quick Links</h3>
+          <h3>EARTH &amp; Beauty</h3>
           <ul>
             {% for link in linklists[settings.footer_quicklinks_linklist].links %}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
@@ -17,7 +17,7 @@
 
       {% if settings.footer_social_enable %}
       <div class="grid-item medium--one-half large--five-twelfths">
-        <h3>Get Connected</h3>
+        <h3>Follow Us</h3>
           {% comment %}
             Loop through the social network links
           {% endcomment %}
@@ -35,6 +35,22 @@
                 <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
                   <span class="icon icon-facebook" aria-hidden="true"></span>
                   <span class="fallback-text">Facebook</span>
+                </a>
+              </li>
+            {% endif %}
+            {% if settings.social_pinterest_link != blank %}
+              <li>
+                <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Pinterest">
+                  <span class="icon icon-pinterest" aria-hidden="true"></span>
+                  <span class="fallback-text">Pinterest</span>
+                </a>
+              </li>
+            {% endif %}
+            {% if settings.social_instagram_link != blank %}
+              <li>
+                <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram">
+                  <span class="icon icon-instagram" aria-hidden="true"></span>
+                  <span class="fallback-text">Instagram</span>
                 </a>
               </li>
             {% endif %}
