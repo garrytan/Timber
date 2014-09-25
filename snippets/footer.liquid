@@ -17,19 +17,11 @@
 
       {% if settings.footer_social_enable %}
       <div class="grid-item medium--one-half large--five-twelfths">
-        <h3>Follow Us</h3>
+        <h3>Connect With Us</h3>
           {% comment %}
             Loop through the social network links
           {% endcomment %}
           <ul class="inline-list social-icons">
-            {% if settings.social_twitter_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
-                  <span class="icon icon-twitter" aria-hidden="true"></span>
-                  <span class="fallback-text">Twitter</span>
-                </a>
-              </li>
-            {% endif %}
             {% if settings.social_facebook_link != blank %}
               <li>
                 <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
@@ -38,14 +30,7 @@
                 </a>
               </li>
             {% endif %}
-            {% if settings.social_pinterest_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Pinterest">
-                  <span class="icon icon-pinterest" aria-hidden="true"></span>
-                  <span class="fallback-text">Pinterest</span>
-                </a>
-              </li>
-            {% endif %}
+
             {% if settings.social_instagram_link != blank %}
               <li>
                 <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram">
@@ -54,6 +39,25 @@
                 </a>
               </li>
             {% endif %}
+
+            {% if settings.social_pinterest_link != blank %}
+              <li>
+                <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Pinterest">
+                  <span class="icon icon-pinterest" aria-hidden="true"></span>
+                  <span class="fallback-text">Pinterest</span>
+                </a>
+              </li>
+            {% endif %}
+
+            {% if settings.social_twitter_link != blank %}
+              <li>
+                <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                  <span class="icon icon-twitter" aria-hidden="true"></span>
+                  <span class="fallback-text">Twitter</span>
+                </a>
+              </li>
+            {% endif %}
+
           </ul>
       </div>
       {% endif %}
