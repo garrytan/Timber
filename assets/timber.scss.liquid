@@ -1825,6 +1825,12 @@ label.error {
     white-space: nowrap;
   }
 
+  @include at-query ($max, $postSmall) {
+    & > li {
+      display: block !important; 
+    }
+  }
+
   @include at-query ($max, $xlarge) {
     margin: 0 auto;
     text-align: left;
@@ -2262,7 +2268,7 @@ footer {
 }
 .template-page { 
   .content { 
-    font-size: 18px;
+    font-size: 16px;
     @include at-query ($max, $small) { margin: 0 12px; }
   }
   
@@ -2299,9 +2305,24 @@ footer {
   }
 }
 
+
 .product-description { font-size: 16px; }
 .selector-wrapper { select { background-color: #fff; }}
+.sizing-guide { 
+  margin: 20px 0; font-size: 12px; 
+  text-transform: uppercase;
+  font-weight: bold; 
+  a { color: #999; text-decoration: none; }
+  a:hover { color: #555; text-decoration: underline; }
+}
+.profile-image { float: right; margin-left: 15px; margin-bottom: 15px; border: 1px solid #ddd;}
 
+#fit-amp-sizing-guide-earth-amp-beauty  {
+  table { 
+    font-size: 12px; 
+    th { vertical-align: bottom; }
+  }
+}
 /*============================================================================
   # EARTH AND BEAUTY LOOKBOOK
 ==============================================================================*/
