@@ -43,9 +43,9 @@
   {{ 'ajaxify.scss.css' | asset_url | stylesheet_tag }}
   {% endif %}
 
-  <!-- Header hook for plugins ================================================== -->
+  <!-- BEGIN Header hook for plugins ================================================== -->
   {{ content_for_header }}
-
+  <!-- END Header hook for plugins ================================================== -->
   {% include 'oldIE-js' %}
 
   {% comment %}

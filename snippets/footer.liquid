@@ -71,6 +71,18 @@
     </div>
 
     <hr>
+    
+    <div class="mini-footer">
+      <ul>
+        <li>&copy; 2014 Earth & Beauty</li>
+        {% for link in linklists['mini-footer'].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+
+    
 
     {% comment %}
       Loop through available payment methods and show their icons.

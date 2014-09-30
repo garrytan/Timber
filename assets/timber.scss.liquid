@@ -1891,11 +1891,11 @@ label.error {
 .site-footer {
   background-color: $colorFooterBg;
   border-top: 1px solid $colorBorder;
-  padding: $gutter 0;
+  padding: 48px 0 24px;
   color: $colorFooterText;
 
   @include at-query ($min, $large) {
-    padding: $gutter*2 0;
+    padding: $gutter*2 0 $gutter;
   }
 }
 
@@ -2287,8 +2287,20 @@ footer {
   font-size: 12px; margin: 15px 0; color: #aaa;
   a { color: #aaa; }
 }
+.mini-footer { 
+  color: #ccc;
+  text-align: right;
+  a { color: #ccc; }
+  ul { margin-bottom: 0; }
+  ul li { 
+    margin-right: 20px; 
+    font-size: 11px;
+    display: inline-block;
+  }
+}
 
-
+.product-description { font-size: 16px; }
+.selector-wrapper { select { background-color: #fff; }}
 
 /*============================================================================
   # EARTH AND BEAUTY LOOKBOOK
