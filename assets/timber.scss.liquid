@@ -118,6 +118,13 @@ $successGreen: #0a942a;
 
 // Width variables
 $siteWidth: 1300px;
+
+$shortSiteHeight: 700px;
+$shortSiteWidth: 1100px;
+
+$veryShortSiteHeight: 400px;
+$veryShortSiteWidth: 800px;
+
 $gutter: 24px;
 $gridGutter: 24px; // can be a %, but nested grids will have smaller margins because of it
 
@@ -682,7 +689,15 @@ body {
   @include at-query ($min, $small) {
     padding: 0 $gutter;
   }
+
 }
+@media only screen and (max-height: $veryShortSiteHeight) {
+  .wrapper { max-width: $veryShortSiteWidth;}   
+}
+@media only screen and (min-height: $veryShortSiteHeight) and (max-height: $shortSiteHeight) {
+  .wrapper { max-width: $shortSiteWidth;}   
+}
+
 
 .main-content {
   display: block;
@@ -927,7 +942,7 @@ hr {
     vertical-align: middle;
   }
 
-  @include at-query ($min, $postSmall) {
+  @include at-query ($min, $preMedium) {
     label + select,
     .collection-view {
       margin-left: $gutter/2;
@@ -1801,8 +1816,9 @@ label.error {
 }
 
 .site-nav {
-  font-size: em(16px);
+  font-size: 12px;
   cursor: default;
+  margin: 0 -10px !important;
 
   li {
     margin: 0;
@@ -1813,26 +1829,27 @@ label.error {
     position: relative;
     display: inline-block;
 
-    &:first-child a {
+    /*&:first-child a {
       padding-left: 0;
-    }
+    }*/
   }
 
   a {
     display: block;
     text-decoration: none;
-    padding: $gutter/2;
+    padding: $gutter/6 $gutter/2;
     white-space: nowrap;
   }
 
   @include at-query ($max, $postSmall) {
+    margin: 0 0 !important;
     & > li {
       display: block !important; 
     }
   }
 
   @include at-query ($max, $xlarge) {
-    margin: 0 auto;
+    margin: 0 0 !important;
     text-align: left;
 
     & > li {
@@ -1844,6 +1861,7 @@ label.error {
     a { padding: $gutter/6 $gutter/2; }
   }
 }
+nav.nav-bar .grid .grid-item { vertical-align: top; }
 
 .site-nav--active > a {
   font-weight: bold;
@@ -2146,14 +2164,14 @@ nav.nav-bar-index {
   a { 
     color: #eee; 
     text-transform: uppercase; 
-    font-size: 15px; 
+    font-size: 13px; 
   }
   a:hover { color: #fff; }
 }
 
 nav.nav-bar {
   padding: 10px 0; 
-  a { text-transform: uppercase;  font-size: 15px; }
+  a { text-transform: uppercase;  font-size: 13px; }
 }
 .second-header { 
   margin-top: 30px; margin-bottom: 30px;
@@ -2316,6 +2334,7 @@ footer {
   a:hover { color: #555; text-decoration: underline; }
 }
 .profile-image { float: right; margin-left: 15px; margin-bottom: 15px; border: 1px solid #ddd;}
+#sku { font-size: 11px; color: #999; }
 
 #fit-amp-sizing-guide-earth-amp-beauty  {
   table { 
@@ -2326,19 +2345,33 @@ footer {
 /*============================================================================
   # EARTH AND BEAUTY LOOKBOOK
 ==============================================================================*/
+#lookbook {
+  position: relative;
 
-#lookbook .item img{
+  .item img{
     display: block;
     width: 100%;
     height: auto;
-}
-
-@media screen and ( max-height: 600px ){
-  /*#lookbook .item img{
-      max-height: 600px;
+  }
+/*
+  .owl-prev {
+    position: absolute;
+    left: 0; top: 0; bottom: 0; 
+    display: none;
+    border-radius: 0;
+    background-color: #000;
   }*/
+
+}
+/*#lookbook:hover .owl-prev { display: block; }*/
+
+.lookbook-wrapper-bg {
+  background-color: #fff;
+  text-align: center;
 }
 
-
-
-
+/* cart stuff - ajaxify problems = ios 8 mobile safari rendering issue */
+.ajaxifyCart--close { z-index: 2000 !important;}
+#ajaxifyCart.ajaxifyCart--content { z-index: -1 !important; }
+#ajaxifyCart {z-index: 1 !important; }
+.h4 small { font-weight: normal; }

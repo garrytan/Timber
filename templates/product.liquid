@@ -134,6 +134,8 @@
       <div class="product-description rte" itemprop="description">
         {{ product.description }}
 
+        <p id="sku"></p>
+
         <div class="sizing-guide"><a href="/pages/fit-sizing-guide">Fit &amp; Sizing Guide&nbsp;&raquo;</a></div>
       </div>
 
@@ -217,7 +219,8 @@
         $comparePrice = $('#comparePrice'),
         $quantityElements = $('.quantity-selector, label + .js-qty'),
         $addToCartText = $('#addToCartText'),
-        $featuredImage = $('#productPhotoImg');
+        $featuredImage = $('#productPhotoImg'),
+        $sku = $('#sku');
 
     if (variant) {
 
@@ -234,11 +237,13 @@
         // We have a valid product variant, so enable the submit button
         $addToCart.removeClass('disabled').prop('disabled', false);
         $addToCartText.text('Add to Cart');
+        $sku.text('SKU: ' + variant.sku);
         $quantityElements.show();
       } else {
         // Variant is sold out, disable the submit button
         $addToCart.addClass('disabled').prop('disabled', true);
         $addToCartText.text('Sold Out');
+        $sku.text('');
         $quantityElements.hide();
       }
 
