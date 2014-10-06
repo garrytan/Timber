@@ -64,12 +64,6 @@
   <script>
     $(document).ready(function() {
       var owl = $("#lookbook");
-      var assureSize = function() {
-        var items = $('#lookbook .item img');
-        var windowHeight = $( window ).height();
-
-
-      };
       owl.owlCarousel({
           navigation : true, // Show next and prev buttons
           slideSpeed : 300,
@@ -77,8 +71,7 @@
           singleItem:true,
           autoPlay: 4000,
           stopOnHover: true,
-          navigationText: ['Previous', 'Next'],
-          afterInit: assureSize
+          navigationText: ['<img src="{{'owl-left.png' | asset_url}}"/>', '<img src="{{'owl-right.png' | asset_url}}"/>'],
       });
       $(document).keydown(function(e) {
         switch(e.which) {

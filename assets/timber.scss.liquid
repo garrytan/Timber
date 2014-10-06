@@ -2353,17 +2353,40 @@ footer {
     width: 100%;
     height: auto;
   }
-/*
+
   .owl-prev {
+    padding: 0 0;
     position: absolute;
-    left: 0; top: 0; bottom: 0; 
+    left: -5px; top: 50%; 
     display: none;
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
     border-radius: 0;
     background-color: #000;
-  }*/
+    opacity: 0.2; 
+    font-weight: bold; 
+    font-size: 70px;
+    line-height: 70px;
+  }
+  .owl-next {
+    padding: 0 0;
+    position: absolute;
+    right: -5px; top: 50%; 
+    margin-top: -50px;
+    display: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    background-color: #000;
+    opacity: 0.2; 
+    font-weight: bold; 
+    font-size: 70px;
+    line-height: 70px;
+  }
 
 }
-/*#lookbook:hover .owl-prev { display: block; }*/
+#lookbook:hover .owl-prev, #lookbook:hover .owl-next { display: block; }
 
 .lookbook-wrapper-bg {
   background-color: #fff;
