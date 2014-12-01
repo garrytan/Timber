@@ -73,6 +73,10 @@
 
   {% comment %} ===================== NORMAL SITE PAGE ===================== {% endcomment %}
   
+  <div class="promo-nonindex">
+    {% include 'promo' %}
+  </div>
+
   {% unless template contains 'index' %}
     <header class="site-header" role="banner">
       {% include 'site-nav-wrapper' %}
