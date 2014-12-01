@@ -76,8 +76,8 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 ==============================================================================*/
 
 // Timber Colors
-$colorPrimary: {{ settings.color_primary }};
-$colorSecondary: {{ settings.color_secondary }};
+$colorPrimary: #747474;
+$colorSecondary: #464646;
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
@@ -93,21 +93,21 @@ $colorLink: $colorPrimary;
 $colorLinkHover: lighten($colorPrimary, 15%);
 
 // Text colors
-$colorTextBody: {{ settings.color_body_text }};
+$colorTextBody: #333333;
 
 // Backgrounds
-$colorBody: {{ settings.color_body_bg }};
+$colorBody: #efefef;
 
 // Border colors
-$colorBorder: {{ settings.color_borders }};
+$colorBorder: #e5e5e5;
 
 // Nav and dropdown link background
 $colorNav: #f2f2f2;
 $colorNavText: #333;
 
 // Site Footer
-$colorFooterBg: {{ settings.color_footer_bg }};
-$colorFooterText: {{ settings.color_footer_text }};
+$colorFooterBg: #f2f2f2;
+$colorFooterText: #636363;
 
 // Helper colors
 $disabledGrey: #f6f6f6;
@@ -144,11 +144,11 @@ $baseFontSize: 14px; // Henseforth known as 1em
 // Icons
 @font-face {
   font-family: "icons";
-  src: url(' {{ "icons.eot" | asset_url }} ');
-  src: url(' {{ "icons.eot" | asset_url }} ?#iefix ') format("embedded-opentype"),
-       url(' {{ "icons.woff" | asset_url }} ') format("woff"),
-       url(' {{ "icons.ttf" | asset_url }} ') format("truetype"),
-       url(' {{ "icons.svg" | asset_url }} #timber-icons ') format("svg");
+  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?4461 ');
+  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?4461 ?#iefix ') format("embedded-opentype"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.woff?4461 ') format("woff"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.ttf?4461 ') format("truetype"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.svg?4461 #timber-icons ') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1591,7 +1591,7 @@ label.error {
 
   li {
     margin: 0 $gutter/4 $gutter/4;
-    color: {{ settings.color_footer_social_link }};
+    color: #bbbbbb;
     cursor: default;
   }
 
@@ -1619,10 +1619,10 @@ label.error {
   }
 
   a {
-    color: {{ settings.color_footer_social_link }};
+    color: #bbbbbb;
 
     &:hover {
-      color: darken({{ settings.color_footer_social_link }}, 10%);
+      color: darken(#bbbbbb, 10%);
     }
   }
 }
@@ -1758,7 +1758,7 @@ label.error {
   text-align: center;
   font-size: em(40px);
   margin: 0 auto $gutter/2;
-  max-width: {{ settings.logo_max_width }}px;
+  max-width: 200px;
 
   @include at-query ($min, $large) {
     margin-bottom: 0;
@@ -2128,33 +2128,17 @@ nav.nav-bar .grid .grid-item { vertical-align: top; }
   # EARTH AND BEAUTY SPECIFIC
 ==============================================================================*/
 
-/* coupon */
-.top-flydown {
-  background-color: #444; 
-  font-size: 12px; 
-  border-bottom: 1px solid #ccc; 
-  padding: 10px 0; 
-  color: #aaa; 
-  h3 { font-size: 12px; color: #ccc; display: inline; }
-  .flydown-detail { display: inline; }
-}
 
-
-/* homepage */
-
-ul ul.site-nav--dropdown {
-  margin: 0 0 !important;
-}
 .above-fold-hero {
   min-height: 800px;
   background-color: #222;
-  background: url('{{ 'hero-nov2014.jpg' | asset_url }}') #222 no-repeat top center; 
+  background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/hero-sept2014.jpg?4461') #222 no-repeat top center; 
   background-size: cover !important;
   position: relative; 
   
   .logo { 
     width: 334px; height: 30px; 
-    background: url('{{ 'homepage-logo.png' | asset_url }}') no-repeat;
+    background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/homepage-logo.png?4461') no-repeat;
     margin-top: 300px;
     
     @include at-query ($max, $small) { margin-top: 165px; margin-left: 10px; } 
@@ -2173,16 +2157,16 @@ ul ul.site-nav--dropdown {
   }
 
   border-bottom: 8px solid #222;
+
 }
 nav.nav-bar-index { 
   padding-top: 10px;
   a { 
-    color: #222; 
+    color: #eee; 
     text-transform: uppercase; 
     font-size: 13px; 
-    text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
   }
-  a:hover { color: #888; }
+  a:hover { color: #fff; }
 }
 
 nav.nav-bar {
@@ -2191,6 +2175,12 @@ nav.nav-bar {
 }
 .second-header { 
   margin-top: 30px; margin-bottom: 30px;
+
+  .logo-black { 
+    width: 125px; height: 50px;
+    background-size: 125px 50px;
+    background-image: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/category-page-logo.png?4461');
+  }
 
   h1, h2 { 
     font-weight: 100;
@@ -2226,24 +2216,7 @@ nav.nav-bar {
     .grid-item { margin: 10px 0; padding-left: 10px; }
     .free-shipping, .free-shipping-wrapper { display: none; }
   }
-  .logo-black { 
-    width: 125px; height: 50px;
-    background-size: 125px 50px;
-    background-image: url('{{'category-page-logo.png'|asset_url}}');
-  }
-}
-.lookbook {
-  .main-content { margin-top: 20px; }
-  
-  .second-header {
-    margin-top: 20px; margin-bottom: 20px; 
-    /* .logo-black { 
-      margin-top: 7px; 
-      width: 186px; height: 17px; background-size: 186px 17px; 
-      background-image: url('{{'lookbook-logo.png'|asset_url}}');
-    }*/
-  }
-  
+
 }
 
 .product-image { border: 1px solid #e3e3e3; }
@@ -2385,22 +2358,6 @@ footer {
 /*============================================================================
   # EARTH AND BEAUTY LOOKBOOK
 ==============================================================================*/
-
-h2.lookbook-title {
-  .line1 { 
-    font-size: 20px !important; 
-    font-weight: bold; 
-    line-height: 20px;
-    color: #888; 
-    margin: 0 0; padding: 0 0;
-  }
-  .line2 {
-   font-size: 30px !important;  
-   line-height: 30px;
-   margin: 0 0; padding: 0 0;
-  }
-  margin: 0 0 !important; 
-}
 #lookbook {
   position: relative;
 
@@ -2454,4 +2411,3 @@ h2.lookbook-title {
 #ajaxifyCart.ajaxifyCart--content { z-index: -1 !important; }
 #ajaxifyCart {z-index: 1 !important; }
 .h4 small { font-weight: normal; }
-
