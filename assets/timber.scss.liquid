@@ -2132,11 +2132,14 @@ nav.nav-bar .grid .grid-item { vertical-align: top; }
 .top-flydown {
   background-color: #444; 
   font-size: 12px; 
-  border-bottom: 1px solid #ccc; 
   padding: 10px 0; 
   color: #aaa; 
   h3 { font-size: 12px; color: #ccc; display: inline; }
   .flydown-detail { display: inline; }
+}
+a.flydown-link { text-decoration: none; }
+a.flydown-link:hover { 
+  .flydown-detail span { text-decoration: underline; }
 }
 
 
@@ -2174,6 +2177,13 @@ ul ul.site-nav--dropdown {
 
   border-bottom: 8px solid #222;
 }
+@include at-query ($max, $medium) {
+  /* adjust homepage position just for nov 2014 cover */
+  .above-fold-hero {
+    background-position: 65% 30%;
+  }
+}
+
 nav.nav-bar-index { 
   padding-top: 10px;
   a { 
