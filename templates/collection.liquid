@@ -13,7 +13,7 @@
   <div class="grid-item {% if collection %}{% unless collection.handle contains 'lookbook'%}large--seven-twelfths{% else %}large--ten-twelfths{% endunless%}{%else%}large--seven-twelfths{% endif %}">
     {% if collection and collection.title != 'Products'%}
       {% if collection.handle contains 'lookbook' %}
-        <h2 class="lookbook-title">
+        <h2 class="two-line-title">
           {% if collection.handle == 'winter-2014-lookbook-part-1' %}
             <div class="line1">Winter 2014</div>
             <div class="line2">Lookbook Part 1</div>
@@ -23,6 +23,11 @@
           {% else %}
             {{ collection.title }}
           {% endif %}
+        </h2>
+      {% elsif collection.handle contains 'blogger-edit' %}
+        <h2 class="two-line-title">
+          <div class="line1">Blogger Edit</div>
+          <div class="line2">{{ collection.title | remove: 'Blogger Edit:'}}</div>
         </h2>
       {% else %}
         <h2>{{ collection.title }}</h2>

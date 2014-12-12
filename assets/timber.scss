@@ -144,11 +144,11 @@ $baseFontSize: 14px; // Henseforth known as 1em
 // Icons
 @font-face {
   font-family: "icons";
-  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?4461 ');
-  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?4461 ?#iefix ') format("embedded-opentype"),
-       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.woff?4461 ') format("woff"),
-       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.ttf?4461 ') format("truetype"),
-       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.svg?4461 #timber-icons ') format("svg");
+  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?5312 ');
+  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?5312 ?#iefix ') format("embedded-opentype"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.woff?5312 ') format("woff"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.ttf?5312 ') format("truetype"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.svg?5312 #timber-icons ') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -2128,17 +2128,36 @@ nav.nav-bar .grid .grid-item { vertical-align: top; }
   # EARTH AND BEAUTY SPECIFIC
 ==============================================================================*/
 
+/* coupon */
+.top-flydown {
+  background-color: #444; 
+  font-size: 12px; 
+  padding: 10px 0; 
+  color: #aaa; 
+  h3 { font-size: 12px; color: #ccc; display: inline; }
+  .flydown-detail { display: inline; }
+}
+a.flydown-link { text-decoration: none; }
+a.flydown-link:hover { 
+  .flydown-detail span { text-decoration: underline; }
+}
 
+
+/* homepage */
+
+ul ul.site-nav--dropdown {
+  margin: 0 0 !important;
+}
 .above-fold-hero {
   min-height: 800px;
   background-color: #222;
-  background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/hero-sept2014.jpg?4461') #222 no-repeat top center; 
+  background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/hero-nov2014.jpg?5312') #222 no-repeat top center; 
   background-size: cover !important;
   position: relative; 
   
   .logo { 
     width: 334px; height: 30px; 
-    background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/homepage-logo.png?4461') no-repeat;
+    background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/homepage-logo.png?5312') no-repeat;
     margin-top: 300px;
     
     @include at-query ($max, $small) { margin-top: 165px; margin-left: 10px; } 
@@ -2157,16 +2176,23 @@ nav.nav-bar .grid .grid-item { vertical-align: top; }
   }
 
   border-bottom: 8px solid #222;
-
 }
+@include at-query ($max, $medium) {
+  /* adjust homepage position just for nov 2014 cover */
+  .above-fold-hero {
+    background-position: 65% 30%;
+  }
+}
+
 nav.nav-bar-index { 
   padding-top: 10px;
   a { 
-    color: #eee; 
+    color: #222; 
     text-transform: uppercase; 
     font-size: 13px; 
+    text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
   }
-  a:hover { color: #fff; }
+  a:hover { color: #888; }
 }
 
 nav.nav-bar {
@@ -2175,12 +2201,6 @@ nav.nav-bar {
 }
 .second-header { 
   margin-top: 30px; margin-bottom: 30px;
-
-  .logo-black { 
-    width: 125px; height: 50px;
-    background-size: 125px 50px;
-    background-image: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/category-page-logo.png?4461');
-  }
 
   h1, h2 { 
     font-weight: 100;
@@ -2216,7 +2236,24 @@ nav.nav-bar {
     .grid-item { margin: 10px 0; padding-left: 10px; }
     .free-shipping, .free-shipping-wrapper { display: none; }
   }
-
+  .logo-black { 
+    width: 125px; height: 50px;
+    background-size: 125px 50px;
+    background-image: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/category-page-logo.png?5312');
+  }
+}
+.lookbook {
+  .main-content { margin-top: 20px; }
+  
+  .second-header {
+    margin-top: 20px; margin-bottom: 20px; 
+    /* .logo-black { 
+      margin-top: 7px; 
+      width: 186px; height: 17px; background-size: 186px 17px; 
+      background-image: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/lookbook-logo.png?5312');
+    }*/
+  }
+  
 }
 
 .product-image { border: 1px solid #e3e3e3; }
@@ -2358,6 +2395,22 @@ footer {
 /*============================================================================
   # EARTH AND BEAUTY LOOKBOOK
 ==============================================================================*/
+
+h2.two-line-title {
+  .line1 { 
+    font-size: 20px !important; 
+    font-weight: bold; 
+    line-height: 20px;
+    color: #888; 
+    margin: 0 0; padding: 0 0;
+  }
+  .line2 {
+   font-size: 30px !important;  
+   line-height: 30px;
+   margin: 0 0; padding: 0 0;
+  }
+  margin: 0 0 !important; 
+}
 #lookbook {
   position: relative;
 
@@ -2411,3 +2464,4 @@ footer {
 #ajaxifyCart.ajaxifyCart--content { z-index: -1 !important; }
 #ajaxifyCart {z-index: 1 !important; }
 .h4 small { font-weight: normal; }
+
