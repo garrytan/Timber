@@ -2142,34 +2142,16 @@ a.flydown-link:hover {
   .flydown-detail span { text-decoration: underline; }
 }
 
-<<<<<<< HEAD
-/* coupon */
-.top-flydown {
-  background-color: #444; 
-  font-size: 12px; 
-  padding: 10px 0; 
-  color: #aaa; 
-  h3 { font-size: 12px; color: #ccc; display: inline; }
-  .flydown-detail { display: inline; }
-}
-a.flydown-link { text-decoration: none; }
-a.flydown-link:hover { 
-  .flydown-detail span { text-decoration: underline; }
-}
-
-
-=======
 
 /* homepage */
 
 ul ul.site-nav--dropdown {
   margin: 0 0 !important;
 }
->>>>>>> nov2014
 .above-fold-hero {
   min-height: 800px;
   background-color: #222;
-  background: url('{{ 'hero-nov2014.jpg' | asset_url }}') #222 no-repeat top center; 
+  background: url('{{ 'hero-jan2015.jpg' | asset_url }}') #222 no-repeat top center; 
   background-size: cover !important;
   position: relative; 
   
@@ -2275,7 +2257,10 @@ nav.nav-bar {
 }
 
 .product-image { border: 1px solid #e3e3e3; }
-.product-price { margin: 15px 0; color: #999; }
+.product-price { 
+  margin: 15px 0; color: #999; 
+  .on-sale-old-price { text-decoration: line-through; font-size: 20px; color: #aaa; margin-left: 5px; }
+}
 .product-content { 
   padding-left: 15px; font-size: 16px; 
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
@@ -2288,10 +2273,19 @@ nav.nav-bar {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 .price { 
+  margin-top: 3px; 
   font-weight: bold; 
   font-size: 20px;
   line-height: 20px;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+
+  .on-sale-old-price { 
+    font-weight: normal; 
+    color: #999; 
+    text-decoration: line-through; 
+    margin-left: 5px; 
+  }
+
 
   strong {
     margin-top: 5px; 
@@ -2371,6 +2365,7 @@ footer {
 .ajaxifyCart--content { 
   h1, .h1 { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;  }
 }
+
 
 .forgot-pw { 
   margin: 5px 0 15px; 
@@ -2471,6 +2466,21 @@ h2.two-line-title {
 
 }
 #lookbook:hover .owl-prev, #lookbook:hover .owl-next { display: block; }
+.lookbook-cover-span { max-width: 100%; }
+.lookbook-wrapper-bg {
+  background-color: #fff;
+  text-align: center;
+}
+
+.lookbook-masonry {
+  margin-top: 15px; 
+  
+  .item { 
+    float: left; 
+    width: 31%;
+    margin: 20px 1%;  }
+  img { width: 100%;  }
+}
 
 .lookbook-wrapper-bg {
   background-color: #fff;

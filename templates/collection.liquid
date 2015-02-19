@@ -17,8 +17,14 @@
           {% if collection.handle == 'winter-2014-lookbook-part-1' %}
             <div class="line1">Winter 2014</div>
             <div class="line2">Lookbook Part 1</div>
+          {% elsif collection.handle == 'winter-2014-lookbook-part-2'%}
+            <div class="line1">Winter 2014</div>
+            <div class="line2">Lookbook Part 2</div>
           {% elsif collection.handle == 'lookbook-fall-2014'%}
             <div class="line1">Fall 2014</div>
+            <div class="line2">Lookbook</div>
+          {% elsif collection.handle == 'lookbook-prespring-2015'%}
+            <div class="line1">Pre-Spring 2015</div>
             <div class="line2">Lookbook</div>
           {% else %}
             {{ collection.title }}
@@ -53,78 +59,167 @@
 </div>
 
 {% if collection and collection.handle contains 'lookbook'%}
-  {{ 'owl.carousel.min.js' | asset_url | script_tag }}
-  {{ 'owl.carousel.css' | asset_url | stylesheet_tag }}
-  {{ 'owl.theme.css' | asset_url | stylesheet_tag }}
-  {{ 'owl.transitions.css' | asset_url | stylesheet_tag }}
-  <div class="wrapper">
-    <div class="grid">
-      <div class="lookbook-wrapper-bg">
-        <div id="lookbook" class="owl-carousel owl-theme">
-          {% if collection.handle == 'lookbook-fall-2014' %}
-            <div class="item"><img src="{{'Fall-2014-Lookbook-01.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-02.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-03.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-04.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-06.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-07.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-08.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-09.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-10.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-11.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-12.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-13.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-14.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-15.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Fall-2014-Lookbook-16.jpg'| asset_url}}" alt="Lookbook Image"></div>
-          {% elsif collection.handle == 'winter-2014-lookbook-part-1' %}
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-01.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-02.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-03.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-04.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-05.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-06.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-07.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-08.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-09.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-10.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-11.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-12.jpg'| asset_url}}" alt="Lookbook Image"></div>
-            <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-13.jpg'| asset_url}}" alt="Lookbook Image"></div>
-          {% endif %}
+  {% if collection.handle == 'lookbook-prespring-2015'%}
+    {{ 'masonry.min.js' | asset_url | script_tag }}
+    {{ 'masonry.imagesloaded.min.js' | asset_url | script_tag }}
+    <div class="wrapper">
+      <div class="grid-uniform">
+        <img src="{{'Lookbook 01-2015 - Cover Image.jpg'| asset_url}}" class="lookbook-cover-span"/>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="grid-uniform">
+        <div class="lookbook-masonry clearfix" id="lookbook_01_2015">
+          <div class="item"><img src="{{'Lookbook 01-2015 - 1 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 1 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 1 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 1 - 04.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 2 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 2 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 2 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 2 - 04.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 2 - 05.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 3 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 3 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 3 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 4 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 4 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 4 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 5 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 5 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 5 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 5 - 04.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 5 - 05.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 6 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 6 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 7 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 7 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 7 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 8 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 8 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 9 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 9 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 9 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 9 - 04.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 10 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 10 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 10 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 11 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 11 - 02.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 11 - 03.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 11 - 04.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 11 - 05.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 13 - 01.jpg'| asset_url}}"/></div>
+          <div class="item"><img src="{{'Lookbook 01-2015 - 13 - 02.jpg'| asset_url}}"/></div>
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    $(document).ready(function() {
-      var owl = $("#lookbook");
-      owl.owlCarousel({
-          navigation : true, // Show next and prev buttons
-          slideSpeed : 300,
-          paginationSpeed : 400,
-          singleItem:true,
-          autoPlay: 4000,
-          stopOnHover: true,
-          navigationText: ['<img src="{{'owl-left.png' | asset_url}}"/>', '<img src="{{'owl-right.png' | asset_url}}"/>'],
+    <div class="wrapper">
+      <div class="grid-uniform">
+        <img src="{{'Lookbook 01-2015 - Credits.jpg'| asset_url}}" class="lookbook-cover-span"/>
+      </div>
+    </div>
+
+    <script>
+      var masonryOpts = {
+        // isFitWidth: true,
+        // columnWidth: 300,
+        itemSelector: '.item'
+      };
+      var $container = $('#lookbook_01_2015');
+      $container.imagesLoaded( function() { 
+        $container.masonry(masonryOpts); 
       });
-      $(document).keydown(function(e) {
-        switch(e.which) {
-            case 37: // left
-            owl.trigger("owl.prev");
-            break;
+    
+    </script>
+  {% else %}
+    {{ 'owl.carousel.min.js' | asset_url | script_tag }}
+    {{ 'owl.carousel.css' | asset_url | stylesheet_tag }}
+    {{ 'owl.theme.css' | asset_url | stylesheet_tag }}
+    {{ 'owl.transitions.css' | asset_url | stylesheet_tag }}
+    <div class="wrapper">
+      <div class="grid">
+        <div class="lookbook-wrapper-bg">
+          <div id="lookbook" class="owl-carousel owl-theme">
+            {% if collection.handle == 'lookbook-fall-2014' %}
+              <div class="item"><img src="{{'Fall-2014-Lookbook-01.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-02.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-03.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-04.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-06.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-07.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-08.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-09.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-10.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-11.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-12.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-13.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-14.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-15.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Fall-2014-Lookbook-16.jpg'| asset_url}}" alt="Lookbook Image"></div>
+            {% elsif collection.handle == 'winter-2014-lookbook-part-1' %}
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-01.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-02.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-03.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-04.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-05.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-06.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-07.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-08.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-09.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-10.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-11.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-12.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-1-13.jpg'| asset_url}}" alt="Lookbook Image"></div>
+            {% elsif collection.handle == 'winter-2014-lookbook-part-2' %}
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-01.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-02.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-03.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-04.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-05.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-06.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-07.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-08.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-09.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-10.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-11.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-12.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-13.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-14.jpg'| asset_url}}" alt="Lookbook Image"></div>
+              <div class="item"><img src="{{'Winter-2014-Lookbook-Part-2-15.jpg'| asset_url}}" alt="Lookbook Image"></div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        var owl = $("#lookbook");
+        owl.owlCarousel({
+            navigation : true, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true,
+            autoPlay: 4000,
+            stopOnHover: true,
+            navigationText: ['<img src="{{'owl-left.png' | asset_url}}"/>', '<img src="{{'owl-right.png' | asset_url}}"/>'],
+        });
+        $(document).keydown(function(e) {
+          switch(e.which) {
+              case 37: // left
+              owl.trigger("owl.prev");
+              break;
 
-            case 39: // right
-            owl.trigger("owl.next");
-            break;
+              case 39: // right
+              owl.trigger("owl.next");
+              break;
 
-            default: return; // exit this handler for other keys
-        }
+              default: return; // exit this handler for other keys
+          }
+        });     
       });
-
-     
-    });
-  </script>
+    </script>
+  {% endif %}
 {% endif %}
 
 {% paginate collection.products by 100 %}

@@ -73,12 +73,14 @@
       if your variants have different prices.
     {% endcomment %}
     {% if product.price_varies %}From{% endif %}
-      {{ product.price | money | remove: '.00' | remove: ' ' }}
+    
+    {{ product.price | money | remove: '.00' | remove: ' ' }}
+    
     {% if sold_out %}
       <br><strong>Sold Out</strong>
     {% endif %}
     {% if on_sale %}
-      <br><strong>On Sale</strong> from {{ product.compare_at_price | money }}
+      <span class="on-sale-old-price">{{ product.compare_at_price | money | remove: '.00' | remove: ' ' }}</span>
     {% endif %}
   </div>
 
