@@ -76,8 +76,8 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 ==============================================================================*/
 
 // Timber Colors
-$colorPrimary: {{ settings.color_primary }};
-$colorSecondary: {{ settings.color_secondary }};
+$colorPrimary: #747474;
+$colorSecondary: #464646;
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
@@ -93,21 +93,21 @@ $colorLink: $colorPrimary;
 $colorLinkHover: lighten($colorPrimary, 15%);
 
 // Text colors
-$colorTextBody: {{ settings.color_body_text }};
+$colorTextBody: #333333;
 
 // Backgrounds
-$colorBody: {{ settings.color_body_bg }};
+$colorBody: #efefef;
 
 // Border colors
-$colorBorder: {{ settings.color_borders }};
+$colorBorder: #e5e5e5;
 
 // Nav and dropdown link background
 $colorNav: #f2f2f2;
 $colorNavText: #333;
 
 // Site Footer
-$colorFooterBg: {{ settings.color_footer_bg }};
-$colorFooterText: {{ settings.color_footer_text }};
+$colorFooterBg: #f2f2f2;
+$colorFooterText: #636363;
 
 // Helper colors
 $disabledGrey: #f6f6f6;
@@ -144,11 +144,11 @@ $baseFontSize: 14px; // Henseforth known as 1em
 // Icons
 @font-face {
   font-family: "icons";
-  src: url(' {{ "icons.eot" | asset_url }} ');
-  src: url(' {{ "icons.eot" | asset_url }} ?#iefix ') format("embedded-opentype"),
-       url(' {{ "icons.woff" | asset_url }} ') format("woff"),
-       url(' {{ "icons.ttf" | asset_url }} ') format("truetype"),
-       url(' {{ "icons.svg" | asset_url }} #timber-icons ') format("svg");
+  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?5312 ');
+  src: url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.eot?5312 ?#iefix ') format("embedded-opentype"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.woff?5312 ') format("woff"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.ttf?5312 ') format("truetype"),
+       url(' //cdn.shopify.com/s/files/1/0605/7361/t/6/assets/icons.svg?5312 #timber-icons ') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1591,7 +1591,7 @@ label.error {
 
   li {
     margin: 0 $gutter/4 $gutter/4;
-    color: {{ settings.color_footer_social_link }};
+    color: #bbbbbb;
     cursor: default;
   }
 
@@ -1619,10 +1619,10 @@ label.error {
   }
 
   a {
-    color: {{ settings.color_footer_social_link }};
+    color: #bbbbbb;
 
     &:hover {
-      color: darken({{ settings.color_footer_social_link }}, 10%);
+      color: darken(#bbbbbb, 10%);
     }
   }
 }
@@ -1758,7 +1758,7 @@ label.error {
   text-align: center;
   font-size: em(40px);
   margin: 0 auto $gutter/2;
-  max-width: {{ settings.logo_max_width }}px;
+  max-width: 200px;
 
   @include at-query ($min, $large) {
     margin-bottom: 0;
@@ -2142,40 +2142,22 @@ a.flydown-link:hover {
   .flydown-detail span { text-decoration: underline; }
 }
 
-<<<<<<< HEAD
-/* coupon */
-.top-flydown {
-  background-color: #444; 
-  font-size: 12px; 
-  padding: 10px 0; 
-  color: #aaa; 
-  h3 { font-size: 12px; color: #ccc; display: inline; }
-  .flydown-detail { display: inline; }
-}
-a.flydown-link { text-decoration: none; }
-a.flydown-link:hover { 
-  .flydown-detail span { text-decoration: underline; }
-}
-
-
-=======
 
 /* homepage */
 
 ul ul.site-nav--dropdown {
   margin: 0 0 !important;
 }
->>>>>>> nov2014
 .above-fold-hero {
   min-height: 800px;
   background-color: #222;
-  background: url('{{ 'hero-nov2014.jpg' | asset_url }}') #222 no-repeat top center; 
+  background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/hero-nov2014.jpg?5312') #222 no-repeat top center; 
   background-size: cover !important;
   position: relative; 
   
   .logo { 
     width: 334px; height: 30px; 
-    background: url('{{ 'homepage-logo.png' | asset_url }}') no-repeat;
+    background: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/homepage-logo.png?5312') no-repeat;
     margin-top: 300px;
     
     @include at-query ($max, $small) { margin-top: 165px; margin-left: 10px; } 
@@ -2257,7 +2239,7 @@ nav.nav-bar {
   .logo-black { 
     width: 125px; height: 50px;
     background-size: 125px 50px;
-    background-image: url('{{'category-page-logo.png'|asset_url}}');
+    background-image: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/category-page-logo.png?5312');
   }
 }
 .lookbook {
@@ -2268,7 +2250,7 @@ nav.nav-bar {
     /* .logo-black { 
       margin-top: 7px; 
       width: 186px; height: 17px; background-size: 186px 17px; 
-      background-image: url('{{'lookbook-logo.png'|asset_url}}');
+      background-image: url('//cdn.shopify.com/s/files/1/0605/7361/t/6/assets/lookbook-logo.png?5312');
     }*/
   }
   

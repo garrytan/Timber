@@ -69,7 +69,7 @@
 {% comment %}
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
-<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if collection and collection.handle contains 'lookbook'%} lookbook{% endif %}" >
 
   {% comment %} ===================== NORMAL SITE PAGE ===================== {% endcomment %}
   
@@ -78,6 +78,10 @@
   </div>
 
   {% unless template contains 'index' %}
+    <div class="promo-nonindex">
+      {% include 'promo' %}
+    </div>
+
     <header class="site-header" role="banner">
       {% include 'site-nav-wrapper' %}
     </header>
